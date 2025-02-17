@@ -1,2 +1,7 @@
-package com.esales.paymentservice.domain.enums;public enum StatusP {
+package com.esales.paymentservice.domain.enums;
+
+public enum StatusP {
+    PENDING,
+    COMPLETED,
+    FAILED
 }
