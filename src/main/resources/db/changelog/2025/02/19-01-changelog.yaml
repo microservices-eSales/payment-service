@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1739961383168-1
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: payment_method
+            tableName: payments
+        - dropColumn:
+            columnName: status
+            tableName: payments
+  - changeSet:
+      id: 1739961383168-2
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: payment_method
+                  type: VARCHAR(255)
+            tableName: payments
+  - changeSet:
+      id: 1739961383168-4
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: status
+                  type: VARCHAR(255)
+            tableName: payments
+

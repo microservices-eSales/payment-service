@@ -3,7 +3,7 @@ package com.esales.paymentservice.domain.enums;
 import lombok.Getter;
 
 @Getter
-public enum Payment_method {
+public enum PaymentMethod {
     CARD,
     PAYPAL
 }

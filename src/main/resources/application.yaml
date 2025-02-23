@@ -1,4 +1,5 @@
 spring:
+
   docker:
     compose:
       enabled: true
@@ -19,4 +20,8 @@ spring:
     enabled: true
     change-log: db/changelog/master.yaml
 server:
-  port: 8445
+  port: 8888
+
+stripe:
+  api:
+    key: sk_test_51QtoIwDMtDp6WnpOtVlFQyURm9JX4bJrH788iNzRSovvNUUm1LQ1OLqPUrG92laVOJNi69f2HBX9XK8k3FlM3hPr00n8vHq4zF

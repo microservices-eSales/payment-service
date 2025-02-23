@@ -1,0 +1,102 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1739870960428-1
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_payments
+                  name: id
+                  type: UUID
+              - column:
+                  name: order_id
+                  type: UUID
+              - column:
+                  name: amount
+                  type: FLOAT
+              - column:
+                  name: payment_method
+                  type: SMALLINT
+              - column:
+                  name: status
+                  type: SMALLINT
+            tableName: payments
+  - changeSet:
+      id: 1739870960428-2
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_refunds
+                  name: id
+                  type: UUID
+              - column:
+                  name: payment_id
+                  type: UUID
+              - column:
+                  name: amount
+                  type: FLOAT
+              - column:
+                  name: status
+                  type: VARCHAR(255)
+            tableName: refunds
+  - changeSet:
+      id: 1739870960428-3
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_transactions
+                  name: id
+                  type: UUID
+              - column:
+                  name: payment_id
+                  type: UUID
+              - column:
+                  name: reference
+                  type: VARCHAR(255)
+              - column:
+                  name: status
+                  type: VARCHAR(255)
+              - column:
+                  name: date
+                  type: DATETIME
+            tableName: transactions
+  - changeSet:
+      id: 1739870960428-4
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: payment_id
+            baseTableName: refunds
+            constraintName: FK_REFUNDS_ON_PAYMENT
+            referencedColumnNames: id
+            referencedTableName: payments
+  - changeSet:
+      id: 1739870960428-5
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: payment_id
+            baseTableName: transactions
+            constraintName: FK_TRANSACTIONS_ON_PAYMENT
+            referencedColumnNames: id
+            referencedTableName: payments
+
